@@ -24,6 +24,9 @@ public abstract class AbstractEntity {
     @Size(max = 255)
     private String description;
 
+    @NotBlank
+    private Integer price;
+
     public int getId() {
         return id;
     }
@@ -44,10 +47,18 @@ public abstract class AbstractEntity {
         this.description = description;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Name: " + name + "\n" +
-                "Description: " + description;
+                "Description: " + description + "\n" +
+                "Price:" + price;
     }
 
     @Override
