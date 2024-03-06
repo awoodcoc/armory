@@ -11,7 +11,7 @@ import java.util.Objects;
 @MappedSuperclass
 public abstract class AbstractEntity {
 
-
+    // PROPERTIES
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,6 +27,10 @@ public abstract class AbstractEntity {
     @NotBlank
     private Integer price;
 
+    @NotBlank
+    private Integer weight;
+
+    // GETTERS AND SETTERS
     public int getId() {
         return id;
     }
@@ -54,11 +58,20 @@ public abstract class AbstractEntity {
         this.price = price;
     }
 
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
     @Override
     public String toString() {
         return "Name: " + name + "\n" +
                 "Description: " + description + "\n" +
-                "Price:" + price;
+                "Price:" + price + "\n" +
+                "Weight: " + weight;
     }
 
     @Override
