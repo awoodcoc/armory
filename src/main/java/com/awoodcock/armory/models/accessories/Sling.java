@@ -1,10 +1,20 @@
 package com.awoodcock.armory.models.accessories;
 
 import com.awoodcock.armory.models.AbstractEntity;
+import com.awoodcock.armory.models.ar.AR;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Sling extends AbstractEntity {
 
     // PROPERTIES
+    @OneToMany(mappedBy = "sling")
+    private final List<AR> ARs = new ArrayList<>();
+
     private int numPoints;
 
     private String attachmentMethod;

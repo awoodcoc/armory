@@ -4,32 +4,60 @@ import com.awoodcock.armory.models.AbstractEntity;
 import com.awoodcock.armory.models.accessories.Magazine;
 import com.awoodcock.armory.models.accessories.Optic;
 import com.awoodcock.armory.models.accessories.Sling;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 public class AR extends AbstractEntity {
 
     // PROPERTIES
+    @ManyToOne
+    @JoinColumn(name = "barrel_id")
     private Barrel barrel;
 
+    @ManyToOne
+    @JoinColumn(name = "bcg_id")
     private BCG bcg;
 
+    @ManyToOne
+    @JoinColumn(name = "chargingHandle_id")
     private ChargingHandle chargingHandle;
 
+    @ManyToOne
+    @JoinColumn(name = "handguard_id")
     private Handguard handguard;
 
+    @ManyToOne
+    @JoinColumn(name = "lower_id")
     private Lower lower;
 
+    @ManyToOne
+    @JoinColumn(name = "pistolGrip_id")
     private  PistolGrip pistolGrip;
 
+    @ManyToOne
+    @JoinColumn(name = "stock_id")
     private Stock stock;
 
+    @ManyToOne
+    @JoinColumn(name = "trigger_id")
     private Trigger trigger;
 
+    @ManyToOne
+    @JoinColumn(name = "upper_id")
     private Upper upper;
 
+    @ManyToOne
+    @JoinColumn(name = "magazine_id")
     private Magazine magazine;
 
+    @ManyToOne
+    @JoinColumn(name = "optic_id")
     private Optic optic;
 
+    @ManyToOne
+    @JoinColumn(name = "sling_id")
     private Sling sling;
 
     // CONSTRUCTORS
