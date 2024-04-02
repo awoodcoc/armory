@@ -8,18 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Trigger extends AbstractEntity {
+public class Trig extends AbstractEntity {
 
     // PROPERTIES
-    @OneToMany(mappedBy = "trigger")
+    @OneToMany(mappedBy = "trig")
     private final List<AR> ARs = new ArrayList<>();
 
     private int pullWeight;
 
     // CONSTRUCTORS
-    public Trigger(){}
+    public Trig(){}
 
-    public Trigger(int pullWeight) {
+    public Trig(int pullWeight) {
         super();
         this.pullWeight = pullWeight;
     }
