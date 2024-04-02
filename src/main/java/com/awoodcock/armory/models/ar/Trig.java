@@ -1,16 +1,25 @@
 package com.awoodcock.armory.models.ar;
 
 import com.awoodcock.armory.models.AbstractEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
-public class Trigger extends AbstractEntity {
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class Trig extends AbstractEntity {
 
     // PROPERTIES
+    @OneToMany(mappedBy = "trig")
+    private final List<AR> ARs = new ArrayList<>();
+
     private int pullWeight;
 
     // CONSTRUCTORS
-    public Trigger(){}
+    public Trig(){}
 
-    public Trigger(int pullWeight) {
+    public Trig(int pullWeight) {
         super();
         this.pullWeight = pullWeight;
     }

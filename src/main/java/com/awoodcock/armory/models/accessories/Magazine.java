@@ -1,10 +1,19 @@
 package com.awoodcock.armory.models.accessories;
 
 import com.awoodcock.armory.models.AbstractEntity;
+import com.awoodcock.armory.models.ar.AR;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Magazine extends AbstractEntity {
 
     // PROPERTIES
+    @OneToMany(mappedBy = "magazine")
+    private final List<AR> ARs = new ArrayList<>();
     private int capacity;
 
     private int numMags;

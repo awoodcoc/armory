@@ -4,32 +4,60 @@ import com.awoodcock.armory.models.AbstractEntity;
 import com.awoodcock.armory.models.accessories.Magazine;
 import com.awoodcock.armory.models.accessories.Optic;
 import com.awoodcock.armory.models.accessories.Sling;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 public class AR extends AbstractEntity {
 
     // PROPERTIES
+    @ManyToOne
+    @JoinColumn(name = "barrel_id")
     private Barrel barrel;
 
+    @ManyToOne
+    @JoinColumn(name = "bcg_id")
     private BCG bcg;
 
+    @ManyToOne
+    @JoinColumn(name = "chargingHandle_id")
     private ChargingHandle chargingHandle;
 
+    @ManyToOne
+    @JoinColumn(name = "handguard_id")
     private Handguard handguard;
 
+    @ManyToOne
+    @JoinColumn(name = "lower_id")
     private Lower lower;
 
+    @ManyToOne
+    @JoinColumn(name = "pistolGrip_id")
     private  PistolGrip pistolGrip;
 
+    @ManyToOne
+    @JoinColumn(name = "stock_id")
     private Stock stock;
 
-    private Trigger trigger;
+    @ManyToOne
+    @JoinColumn(name = "trig_id")
+    private Trig trig;
 
+    @ManyToOne
+    @JoinColumn(name = "upper_id")
     private Upper upper;
 
+    @ManyToOne
+    @JoinColumn(name = "magazine_id")
     private Magazine magazine;
 
+    @ManyToOne
+    @JoinColumn(name = "optic_id")
     private Optic optic;
 
+    @ManyToOne
+    @JoinColumn(name = "sling_id")
     private Sling sling;
 
     // CONSTRUCTORS
@@ -37,7 +65,7 @@ public class AR extends AbstractEntity {
 
     public AR(Barrel barrel, BCG bcg, ChargingHandle chargingHandle,
               Handguard handguard, Lower lower, PistolGrip pistolGrip,
-              Stock stock, Trigger trigger, Upper upper, Magazine magazine,
+              Stock stock, Trig trig, Upper upper, Magazine magazine,
               Optic optic, Sling sling) {
         this.barrel = barrel;
         this.bcg = bcg;
@@ -46,7 +74,7 @@ public class AR extends AbstractEntity {
         this.lower = lower;
         this.pistolGrip = pistolGrip;
         this.stock = stock;
-        this.trigger = trigger;
+        this.trig = trig;
         this.upper = upper;
         this.magazine = magazine;
         this.optic = optic;
@@ -110,12 +138,12 @@ public class AR extends AbstractEntity {
         this.stock = stock;
     }
 
-    public Trigger getTrigger() {
-        return trigger;
+    public Trig getTrigger() {
+        return trig;
     }
 
-    public void setTrigger(Trigger trigger) {
-        this.trigger = trigger;
+    public void setTrigger(Trig trig) {
+        this.trig = trig;
     }
 
     public Upper getUpper() {
