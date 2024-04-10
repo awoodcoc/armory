@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BarrelService {
+public class PistolGripService {
 
     // REPOSITORY
 
     // CONSTRUCTOR
 
-    // CRUD OPERATIONS for BARREL class
+    // CRUD OPERATIONS for PistolGrip class
 
     // CREATE
 

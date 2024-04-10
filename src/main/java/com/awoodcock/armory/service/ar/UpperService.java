@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BarrelService {
+public class UpperService {
 
     // REPOSITORY
 
     // CONSTRUCTOR
 
-    // CRUD OPERATIONS for BARREL class
+    // CRUD OPERATIONS for Upper class
 
     // CREATE
 

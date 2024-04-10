@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BarrelService {
+public class ARService {
 
     // REPOSITORY
 
     // CONSTRUCTOR
 
-    // CRUD OPERATIONS for BARREL class
+    // CRUD OPERATIONS for AR class
 
     // CREATE
 
@@ -22,4 +22,5 @@ public class BarrelService {
     // UPDATE
 
     // DELETE
+
 }
