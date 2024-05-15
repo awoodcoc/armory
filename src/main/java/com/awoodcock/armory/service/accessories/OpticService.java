@@ -76,6 +76,7 @@ public class OpticService {
         }
         return null;
     }
+
     // DELETE
     public String deleteOptic(int id) {
         if (opticRepository.findById(id).isPresent()) {
