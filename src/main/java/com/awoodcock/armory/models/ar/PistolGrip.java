@@ -47,11 +47,11 @@ public class PistolGrip extends AbstractEntity {
         this.color = color;
     }
 
-    public boolean isHasCompartment() {
+    public boolean hasCompartment() {
         return hasCompartment;
     }
 
-    public void setHasCompartment(boolean hasCompartment) {
+    public void setCompartment(boolean hasCompartment) {
         this.hasCompartment = hasCompartment;
     }
 }
