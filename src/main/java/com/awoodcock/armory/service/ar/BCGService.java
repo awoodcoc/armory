@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -28,28 +29,61 @@ public class BCGService {
     }
 
     // READ
-    public Optional<BCG> getBCGById(int id) {
-        return bcgRepository.findById(id);
+    public BCG getBCGById(int id) {
+        Optional<BCG> bcg = bcgRepository.findById(id);
+        return bcg.orElse(null);
     }
 
     public List<BCG> getAllBCGs() {
         return bcgRepository.findAll();
     }
     // UPDATE
+    public BCG updateBCGById (int id, BCG bcg) {
+        Optional<BCG> bcgOptional = bcgRepository.findById(id);
+        if (bcgOptional.isPresent()) {
+            BCG originalBCG = bcgOptional.get();
 
+            // name
+            if (Objects.nonNull(bcg.getName()) && !"".equalsIgnoreCase(bcg.getName())) {
+                originalBCG.setName(bcg.getName());
+            }
 
-    // name
+            // description
+            if (Objects.nonNull(bcg.getDescription()) && !"".equalsIgnoreCase(bcg.getName())) {
+                originalBCG.setDescription(bcg.getDescription());
+            }
 
-    // description
+            // price
+            if (Objects.nonNull(bcg.getPrice()) && bcg.getPrice() != 0) {
+                originalBCG.setPrice(bcg.getPrice());
+            }
 
-    // price
+            // weight
+            if (Objects.nonNull(bcg.getWeight()) && bcg.getWeight() != 0) {
+                originalBCG.setWeight(bcg.getWeight());
+            }
 
-    // weight
+            // boltMaterial
+            if (Objects.nonNull(bcg.getBoltMaterial()) && !"".equalsIgnoreCase(bcg.getBoltMaterial())) {
+                originalBCG.setBoltMaterial(bcg.getBoltMaterial());
+            }
 
-    //
+            // finish
+            if (Objects.nonNull(bcg.getFinish()) && !"".equalsIgnoreCase(bcg.getFinish())) {
+                originalBCG.setFinish(bcg.getFinish());
+            }
+
+            return bcgRepository.save(originalBCG);
+        }
+        return null;
+    }
 
     // DELETE
-    public void deleteBCG(int id) {
-        bcgRepository.deleteById(id);
+    public String deleteBCG(int id) {
+        if (bcgRepository.findById(id).isPresent()) {
+            bcgRepository.deleteById(id);
+            return "BCG successfully deleted from database.";
+        }
+        return "BCG not found within database.";
     }
 }
