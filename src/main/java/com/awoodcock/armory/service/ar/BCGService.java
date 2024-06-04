@@ -37,6 +37,17 @@ public class BCGService {
     }
     // UPDATE
 
+
+    // name
+
+    // description
+
+    // price
+
+    // weight
+
+    //
+
     // DELETE
     public void deleteBCG(int id) {
         bcgRepository.deleteById(id);

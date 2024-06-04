@@ -38,6 +38,19 @@ public class ChargingHandleService {
 
     // UPDATE
 
+
+
+    // name
+
+    // description
+
+    // price
+
+    // weight
+
+    //
+
+
     // DELETE
     public void deleteChargingHandle(int id) {
         chargingHandleRepository.deleteById(id);

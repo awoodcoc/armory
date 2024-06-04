@@ -38,6 +38,17 @@ public class BarrelService {
 
     // UPDATE
 
+
+    // name
+
+    // description
+
+    // price
+
+    // weight
+
+    //
+
     // DELETE
     public void deleteBarrel(int id) {
         barrelRepository.deleteById(id);
