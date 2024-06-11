@@ -1,9 +1,8 @@
 package com.awoodcock.armory.service.ar;
 
-import com.awoodcock.armory.data.accessories.MagazineRepository;
-import com.awoodcock.armory.data.accessories.OpticRepository;
-import com.awoodcock.armory.data.accessories.SlingRepository;
+import com.awoodcock.armory.data.accessories.*;
 import com.awoodcock.armory.data.ar.*;
+import com.awoodcock.armory.models.ar.AR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -71,6 +70,10 @@ public class ARService {
     // CREATE
 
     // READ
+    public AR getARbyId(int id) {
+        Optional<AR> ar = arRepository.findById(id);
+        return ar.orElse(null);
+    }
 
     // UPDATE
 
