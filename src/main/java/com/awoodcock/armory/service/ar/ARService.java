@@ -68,6 +68,7 @@ public class ARService {
     // CRUD OPERATIONS for AR class
 
     // CREATE
+//    public AR addAR ();
 
     // READ
     public AR getARbyId(int id) {
@@ -80,3 +81,6 @@ public class ARService {
     // DELETE
 
 }
+
+
+
