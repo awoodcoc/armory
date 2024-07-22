@@ -3,9 +3,11 @@ package com.awoodcock.armory.service.ar;
 import com.awoodcock.armory.data.accessories.*;
 import com.awoodcock.armory.data.ar.*;
 import com.awoodcock.armory.models.ar.AR;
+import com.awoodcock.armory.models.ar.Barrel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,7 +70,24 @@ public class ARService {
     // CRUD OPERATIONS for AR class
 
     // CREATE
-//    public AR addAR ();
+//    public AR addAR(String name, String description, int barrelId,
+//                    int BCGId, int chargingHandleId, int handguardId,
+//                    int lowerId, int pistolGripId, int stockId,
+//                    int trigId, int upperId, int magazineId, int opticId,
+//                    int slingId) {
+//        AR ar = new AR();
+//        ar.setName(name);
+//        ar.setDescription(description);
+//        Optional<Barrel> barrel = barrelRepository.findById(barrelId);
+//        if(barrel.isEmpty()) {
+//            System.out.println("Invalid barrel: " + barrelId);
+//        } else {
+//            Barrel b = barrel.get();
+//            ar.setBarrel(b);
+//        }
+//
+//        return ARRepository.save(ar);
+//    }
 
     // READ
     public AR getARbyId(int id) {
