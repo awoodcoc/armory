@@ -81,7 +81,7 @@ public class BarrelService {
     public String deleteBarrel(int id) {
         if (barrelRepository.findById(id).isPresent()) {
             barrelRepository.deleteById(id);
-            return "Barell successfully deleted.";
+            return "Barrel successfully deleted.";
         }
         return "Barrel not found within database.";
     }

@@ -79,7 +79,13 @@ public class ARService {
     // UPDATE
 
     // DELETE
-
+    public String deleteBarrel(int id) {
+        if (arRepository.findById(id).isPresent()) {
+            arRepository.deleteById(id);
+            return "AR successfully deleted.";
+        }
+        return "AR not found within database.";
+    }
 }
 
 
