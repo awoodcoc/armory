@@ -2,12 +2,15 @@ package com.awoodcock.armory.service.ar;
 
 import com.awoodcock.armory.data.accessories.*;
 import com.awoodcock.armory.data.ar.*;
-import com.awoodcock.armory.models.ar.AR;
-import com.awoodcock.armory.models.ar.Barrel;
+import com.awoodcock.armory.models.accessories.Magazine;
+import com.awoodcock.armory.models.accessories.Optic;
+import com.awoodcock.armory.models.accessories.Sling;
+import com.awoodcock.armory.models.ar.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,24 +73,100 @@ public class ARService {
     // CRUD OPERATIONS for AR class
 
     // CREATE
-//    public AR addAR(String name, String description, int barrelId,
-//                    int BCGId, int chargingHandleId, int handguardId,
-//                    int lowerId, int pistolGripId, int stockId,
-//                    int trigId, int upperId, int magazineId, int opticId,
-//                    int slingId) {
-//        AR ar = new AR();
-//        ar.setName(name);
-//        ar.setDescription(description);
-//        Optional<Barrel> barrel = barrelRepository.findById(barrelId);
-//        if(barrel.isEmpty()) {
-//            System.out.println("Invalid barrel: " + barrelId);
-//        } else {
-//            Barrel b = barrel.get();
-//            ar.setBarrel(b);
-//        }
-//
-//        return ARRepository.save(ar);
-//    }
+    public AR addAR(String name, String description, int barrelId,
+                    int BCGId, int chargingHandleId, int handguardId,
+                    int lowerId, int pistolGripId, int stockId,
+                    int trigId, int upperId, int magazineId, int opticId,
+                    int slingId) {
+        AR ar = new AR();
+        ar.setName(name);
+        ar.setDescription(description);
+        Optional<Barrel> barrel = barrelRepository.findById(barrelId);
+        if(barrel.isEmpty()) {
+            System.out.println("Invalid barrel: " + barrelId);
+        } else {
+            Barrel b = barrel.get();
+            ar.setBarrel(b);
+        }
+        Optional<BCG> bcg = bcgRepository.findById(BCGId);
+        if(bcg.isEmpty()) {
+            System.out.println("Invalid BCG: " + BCGId);
+        } else {
+            BCG b = bcg.get();
+            ar.setBcg(b);
+        }
+        Optional<ChargingHandle> chargingHandle = chargingHandleRepository.findById(chargingHandleId);
+        if(chargingHandle.isEmpty()) {
+            System.out.println("Invalid Charging Handle: " + chargingHandleId);
+        } else {
+            ChargingHandle c = chargingHandle.get();
+            ar.setChargingHandle(c);
+        }
+        Optional<Handguard> handguard = handguardRepository.findById(handguardId);
+        if(handguard.isEmpty()) {
+            System.out.println("Invalid Handguard: " + handguardId);
+        } else {
+            Handguard h = handguard.get();
+            ar.setHandguard(h);
+        }
+        Optional<Lower> lower = lowerRepository.findById(lowerId);
+        if(lower.isEmpty()) {
+            System.out.println("Invalid Lower: " + lowerId);
+        } else {
+            Lower l = lower.get();
+            ar.setLower(l);
+        }
+        Optional<PistolGrip> pistolGrip = pistolGripRepository.findById(pistolGripId);
+        if(pistolGrip.isEmpty()) {
+            System.out.println("Invalid Pistol Grip: " + pistolGripId);
+        } else {
+            PistolGrip p = pistolGrip.get();
+            ar.setPistolGrip(p);
+        }
+        Optional<Stock> stock = stockRepository.findById(stockId);
+        if(stock.isEmpty()) {
+            System.out.println("Invalid Stock: " + stockId);
+        } else {
+            Stock s = stock.get();
+            ar.setStock(s);
+        }
+        Optional<Trig> trig = trigRepository.findById(trigId);
+        if(trig.isEmpty()) {
+            System.out.println("Invalid Trigger: " + trigId);
+        } else {
+            Trig t = trig.get();
+            ar.setTrigger(t);
+        }
+        Optional<Upper> upper = upperRepository.findById(upperId);
+        if(upper.isEmpty()) {
+            System.out.println("Invalid Upper: " + upperId);
+        } else {
+            Upper u = upper.get();
+            ar.setUpper(u);
+        }
+        Optional<Magazine> magazine = magazineRepository.findById(magazineId);
+        if(magazine.isEmpty()) {
+            System.out.println("Invalid Magazine: " + magazineId);
+        } else {
+            Magazine m = magazine.get();
+            ar.setMagazine(m);
+        }
+        Optional<Optic> optic = opticRepository.findById(opticId);
+        if(optic.isEmpty()) {
+            System.out.println("Invalid Optic: " + opticId);
+        } else {
+            Optic o = optic.get();
+            ar.setOptic(o);
+        }
+        Optional<Sling> sling = slingRepository.findById(slingId);
+        if(sling.isEmpty()) {
+            System.out.println("Invalid Sling: " + slingId);
+        } else {
+            Sling s = sling.get();
+            ar.setSling(s);
+        }
+        return arRepository.save(ar) ;
+    }
 
     // READ
     public AR getARbyId(int id) {
