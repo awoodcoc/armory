@@ -175,7 +175,29 @@ public class ARService {
     }
 
     // UPDATE
-
+    public void updateAR(int id, AR ar) {
+        Optional<AR> oldAR = arRepository.findById(id);
+        if (oldAR.isEmpty()){
+            System.out.println("Invalid AR: " + id);
+        } else {
+            AR updatedAR = oldAR.get();
+            updatedAR.setName(ar.getName());
+            updatedAR.setDescription(ar.getDescription());
+            updatedAR.setBarrel(ar.getBarrel());
+            updatedAR.setBcg(ar.getBcg());
+            updatedAR.setChargingHandle(ar.getChargingHandle());
+            updatedAR.setHandguard(ar.getHandguard());
+            updatedAR.setPistolGrip(ar.getPistolGrip());
+            updatedAR.setLower(ar.getLower());
+            updatedAR.setStock(ar.getStock());
+            updatedAR.setTrigger(ar.getTrigger());
+            updatedAR.setUpper(ar.getUpper());
+            updatedAR.setMagazine(ar.getMagazine());
+            updatedAR.setOptic(ar.getOptic());
+            updatedAR.setSling(ar.getSling());
+            arRepository.save(updatedAR);
+        }
+    }
     // DELETE
     public String deleteBarrel(int id) {
         if (arRepository.findById(id).isPresent()) {
