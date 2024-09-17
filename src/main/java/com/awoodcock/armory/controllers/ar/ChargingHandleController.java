@@ -11,7 +11,18 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
+@RequestMapping("charging-handles")
+@CrossOrigin
 public class ChargingHandleController {
 
+    @Autowired
+    ChargingHandleService chargingHandleService;
+
+    // GET MAPPING
+    @GetMapping("{/id}")
+    public ResponseEntity<ChargingHandle> getChargingHandleById(@PathVariable int id) {
+        ChargingHandle chargingHandle = chargingHandleService.getChargingHandleById(id);
+        return (chargingHandle != null) ? ResponseEntity.ok(chargingHandle) : ResponseEntity.notFound().build();
+    }
 
 }
